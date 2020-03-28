@@ -68,6 +68,10 @@ input:hover {
 	width: 500px;
 }
 
+.get-location{
+	cursor : pointer;
+}
+
 .main-Icon{
 	position: fixed;
 	z-index: 500;
@@ -75,6 +79,16 @@ input:hover {
 	left: 0;
 	cursor: pointer;
 }
+
+.right-bottom-Icon{
+	position: fixed;
+	z-index: 500;
+	bottom: 0;
+	right : 0;
+	border-radius: 15px;
+}
+
+
 
 @media ( min-width : 360px) {
 	.explanation {
@@ -114,14 +128,10 @@ input:hover {
 
 	<div id="map_div"></div>
 
-	<div class="container fixed-top mt-5">
+	<div class="container fixed-top mt-3">
 		<div class="form-group p-3 bg-white rounded-pill shadow">
 			<input class="form-control shadow-none border-0" id="search" placeholder="주소를 입력해주세요...">
 		</div>
-	</div>
-	
-	<div class="main-Icon m-3 p-3 rounded-circle bg-white shadow text-primary">
-		<i class="fas fa-home fa-2x"></i>
 	</div>
 
 	<div id="mySidenav" class="mySidenav shadow">
@@ -137,20 +147,47 @@ input:hover {
 				</div>
 			</div>
 			
-			<div class="container mt-5">
+			<div class="container mt-5 mb-5">
 				<div class="explanation shadow ml-auto mr-auto p-4">
 					<p>공공데이터포털에서 제공하는 공적 마스크 판매 정보 제공 API를 활용하여 만든 사이트입니다.</p>
 					<p>주소를 기준으로 해당 구 또는 동내에 존재하는 판매처 및 재고 상태 등의 판매 정보를 제공하고 있습니다.<p>
 					<p>ex) '서울특별시 강남구' or '서울특별시 강남구 논현동'<br>
-					<small class="text-primary">'서울특별시'와 같이 '시' 단위만 입력하는 것은 불가능합니다.</small>					
-					</p>
-					<br>
+					<small class="text-primary">'서울특별시'와 같이 '시' 단위만 입력하는 것은 불가능합니다.</small>
+					<div class="text-center">
+						<p class="font-weight-bold text-primary">위치 기반으로 검색하기</p>
+						<a href="#"><i class="fas fa-street-view fa-4x get-location text-primary"></i></a>					
+					</div>
+					<hr>
 					<div class="text-center">
 						<a href="https://github.com/jewon513/mask-project"><i class="fab fa-github-square fa-4x"></i></a>
 						<p class="text-primary">Copyright &copy; 2020 by Jewon513@gmail.com<p>
 					</div>			
 				</div>
 			</div>
+		</div>
+	</div>
+	
+	<div class="main-Icon">
+		<div class="m-2 p-3 rounded-circle bg-white shadow text-primary text-center get-location">
+			<i class="fas fa-map-marker-alt fa-2x"></i>
+		</div>
+		<div class="m-2 p-3 rounded-circle bg-white shadow text-primary text-center go-home">
+			<i class="fas fa-home fa-2x"></i>
+		</div>
+	</div>
+	
+	<div class="right-bottom-Icon m-2 p-3 bg-white shadow text-primary text-center font-weight-bold">
+		<div class="text-success ">
+			<i class="fas fa-circle fa-2x"></i> 충분
+		</div>
+		<div class="text-warning">
+			<i class="fas fa-circle fa-2x"></i> 보통
+		</div>
+		<div class="text-danger">
+			<i class="fas fa-circle fa-2x"></i> 부족
+		</div>
+		<div class="text-secondary">
+			<i class="fas fa-circle fa-2x"></i> 없음
 		</div>
 	</div>
 

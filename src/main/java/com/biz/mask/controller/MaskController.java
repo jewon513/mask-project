@@ -36,6 +36,22 @@ public class MaskController {
 		return "mask";
 	}
 	
+	
+	@ResponseBody
+	@RequestMapping(value = "maskGeoJson", method = RequestMethod.GET, produces="application/json" )
+	public List<MaskItemVO> maskByGeo(String lat, String lng){
+		
+		try {
+			List<MaskItemVO> list = maskService.getMaskStores(lat, lng);
+			return list;
+		} catch (UnsupportedEncodingException | URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "maskJson", method = RequestMethod.GET, produces="application/json" )
 	public List<MaskItemVO> maskJson(String addr) {
