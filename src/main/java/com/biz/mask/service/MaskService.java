@@ -28,6 +28,7 @@ public class MaskService {
 		
 		String requestAddress = URLEncoder.encode(address, "UTF-8");
 		String requestURL = maskURL + "?address=" + requestAddress;
+		
 		URI requestURI = new URI(requestURL);
 		
 		

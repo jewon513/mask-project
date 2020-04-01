@@ -55,7 +55,7 @@ $(function() {
 
 		$.each(result, function(index, item) {
 
-			var imagePath = "/resources/image/"
+			var imagePath = rootPath + "/resources/image/"
 			var maskState = ""
 
 			if (item.remain_stat == "plenty") {
@@ -121,11 +121,11 @@ $(function() {
 	$("#main-search").keypress(function(key) {
 		
 		if (key.keyCode == 13) {
-
+			$("#search").val($("#main-search").val())
 			let search = $("#main-search").val()
 			getMask(search)
 
-			$("#search").val($("#main-search").val())
+			
 		}
 	})
 
@@ -133,10 +133,10 @@ $(function() {
 	$("#search").keypress(function(key) {
 
 		if (key.keyCode == 13) {
-
+			$("#main-search").val($("#search").val())
 			let search = $("#search").val()
 			getMask(search)
-
+			
 		}
 
 	})
@@ -146,7 +146,7 @@ $(function() {
 
 		$.ajax({
 
-			url : "/maskJson",
+			url : rootPath + "/maskJson",
 			data : {
 				addr : search
 			},
@@ -196,6 +196,7 @@ $(function() {
 		        getMaskByGeo(lat, lng)
 
 		},function(error){
+			
 				alert("에러 발생")
 			});  
 		}else {
@@ -213,7 +214,7 @@ $(function() {
 	function getMaskByGeo (lat, lng){
 		
 		$.ajax({
-			url : "/maskGeoJson",
+			url : rootPath + "/maskGeoJson",
 			data : {lat:lat, lng:lng},
 			success : function(result){
 				
